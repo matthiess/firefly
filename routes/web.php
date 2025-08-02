@@ -1444,3 +1444,17 @@ Route::get('/debug-app-key', function () {
         'APP_KEY' => $key ?: 'No APP_KEY found',
     ]);
 });
+
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+
+Route::get('/db-test', function () {
+    try {
+        DB::connection()->getPdo();
+        return '✅ Database connection successful!';
+    } catch (\Exception $e) {
+        Log::error('❌ DB connection failed: ' . $e->getMessage());
+        return '❌ Database connection failed: ' . $e->getMessage();
+    }
+});
