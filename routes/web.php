@@ -1437,3 +1437,10 @@ Route::group(
         //        Route::post('set-order/{bill}', ['uses' => 'Bill\IndexController@setOrder', 'as' => 'set-order']);
     }
 );
+
+Route::get('/debug-app-key', function () {
+    $key = config('app.key');
+    return response()->json([
+        'APP_KEY' => $key ?: 'No APP_KEY found',
+    ]);
+});
