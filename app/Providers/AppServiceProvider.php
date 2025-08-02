@@ -59,6 +59,12 @@ class AppServiceProvider extends ServiceProvider
                 ->withHeaders($headers)
             ;
         });
+		try {
+			DB::connection()->getPdo();
+			Log::info('✅ DB connection successful!');
+		} catch (\Exception $e) {
+			Log::error('❌ DB connection failed: ' . $e->getMessage());
+		};
 
         // blade extension
         Blade::directive('activeXRoutePartial', function (string $route) {
@@ -82,9 +88,11 @@ class AppServiceProvider extends ServiceProvider
             if ($objectType === $firstParam && str_contains($name, $route)) {
                 return true;
             }
-
             return false;
         });
+		
+	
+
     }
 
     /**
