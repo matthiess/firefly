@@ -84,7 +84,7 @@ return [
     'timezone'        => envNonEmpty('TZ', 'UTC'),
     'locale'          => envNonEmpty('DEFAULT_LANGUAGE', 'en_US'),
     'fallback_locale' => 'en_US',
-    'key'             => base64:wP3jSTuyyKFepN5511aBbzm9MvUlMAAnTCk9EwKCp+I=,
+    'key'             => 'base64:wP3jSTuyyKFepN5511aBbzm9MvUlMAAnTCk9EwKCp+I=',
     'cipher'          => 'AES-256-CBC',
     'providers'       => [
         // Laravel Framework Service Providers...
