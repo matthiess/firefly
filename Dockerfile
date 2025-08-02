@@ -22,7 +22,8 @@ RUN apt-get update && apt-get install -y \
     libffi-dev \
     libmagickwand-dev \
     libmagickcore-dev \
-    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
+    && docker-php-ext-install intl pdo pdo_mysql mbstring exif pcntl bcmath gd
+
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
